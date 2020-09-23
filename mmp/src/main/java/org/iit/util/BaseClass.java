@@ -17,7 +17,6 @@ public class BaseClass {
 	// ** Can be used for all projects
 
 	// ** Base class we inherit so it should have relationship
-
 	// default
 	protected WebDriver driver;
 	protected Properties prop;
