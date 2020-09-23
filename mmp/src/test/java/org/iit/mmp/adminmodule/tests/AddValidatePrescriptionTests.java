@@ -19,20 +19,20 @@ public class AddValidatePrescriptionTests extends BaseClass {
 		HelperClass helperObject = new HelperClass(driver);
 
 		// TC2 - Enter URL and login details for Admin Module
-		helperObject.adminLogin("Thomas_444", "Edison_444",
-				"http://96.84.175.78/MMP-Release2-Admin-Build.2.1.000/login.php");
+		helperObject.launchApplicationURL("http://96.84.175.78/MMP-Release2-Admin-Build.2.1.000/login.php");
+		helperObject.adminLogin("Thomas_444", "Edison_444");
 
 		SoftAssert sa = new SoftAssert();
 
 		// TC3 - Navigate to 'Patients' page
-		helperObject.navigateToAModule("Patients");
+		helperObject.navigateToModule("Patients");
 
 		// TC4 - Search for patient by SSN
-		Boolean patientFound = helperObject.adminSearchPatientBySSN(ssn);
+		CreateVisitPage createVisitPage = new CreateVisitPage(driver);
+		Boolean patientFound = createVisitPage.adminSearchPatientBySSN(ssn);
 		sa.assertTrue(patientFound);
 
 		// TC5 - Create Visit for the patient
-		CreateVisitPage createVisitPage = new CreateVisitPage(driver);
 		createVisitPage.addPrescription();
 	}
 

@@ -15,7 +15,8 @@ public class PatientRegistrationTests extends BaseClass {
 		HelperClass helperObject = new HelperClass(driver);
 
 		// TC2 - Enter URL
-		helperObject.launchBrowser("http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php");
+		helperObject.launchApplicationURL("http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php");
+		helperObject.adminLogin("ria1", "Ria12345");
 
 		PatientRegistrationPage patientRegister = new PatientRegistrationPage(driver);
 		// TC3 - Click the Register button

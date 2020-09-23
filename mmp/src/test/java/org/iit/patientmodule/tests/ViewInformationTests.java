@@ -15,11 +15,11 @@ public class ViewInformationTests extends BaseClass {
 		HelperClass helperObject = new HelperClass(driver);
 
 		// TC2 - Enter URL and login details
-		helperObject.login("ria1", "Ria12345",
-				"http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php");
+		helperObject.launchApplicationURL("http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php");
+		helperObject.adminLogin("ria1", "Ria12345");
 
 		// TC3 - Navigate to Information
-		helperObject.navigateToAModule("Information");
+		helperObject.navigateToModule("Information");
 
 		// TC4 - Verify information on webpage matched with text file
 		ViewInformation viewInfo = new ViewInformation(driver);

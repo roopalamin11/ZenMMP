@@ -18,12 +18,13 @@ public class EditUpdateProfileTests extends BaseClass {
 		HelperClass helperObject = new HelperClass(driver);
 
 		// TC2 - Enter URL and login details
-		helperObject.login("ria1", "Ria12345",
-				"http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php");
+		helperObject.launchApplicationURL("http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php");
+		helperObject.adminLogin("ria1", "Ria12345");
+
 		// driver.get("http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/index.php");
 
 		// TC3 - Navigate to Schedule Appointment
-		helperObject.navigateToAModule("Profile");
+		helperObject.navigateToModule("Profile");
 
 		EditUpdateProfilePage profilePage = new EditUpdateProfilePage(driver);
 		// TC #4 - Click Edit button

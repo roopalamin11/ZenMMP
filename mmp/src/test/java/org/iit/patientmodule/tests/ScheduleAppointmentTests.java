@@ -9,6 +9,8 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 public class ScheduleAppointmentTests extends BaseClass {
+	private HelperClass helperObject;
+
 	String doctorName = "Sophia Rich";
 
 	@Test
@@ -17,20 +19,20 @@ public class ScheduleAppointmentTests extends BaseClass {
 		SoftAssert sa = new SoftAssert();
 
 		// #TC1 - Open the Chrome Browser
-		HelperClass helperObject = new HelperClass(driver);
+		helperObject = new HelperClass(driver);
 
 		// TC2 - Enter URL and login details
-		helperObject.login("ria1", "Ria12345",
-				"http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php");
+		helperObject.launchApplicationURL("http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php");
+		helperObject.adminLogin("ria1", "Ria12345");
 
 		// TC3 - Navigate to Schedule Appointment
-		helperObject.navigateToAModule("Schedule Appointment");
+		helperObject.navigateToModule("Schedule Appointment");
 
 		ScheduleAppointmentPage schApptPage = new ScheduleAppointmentPage(driver);
 
 		// TC4 - Schedule an appointment with the doctor
 		HashMap<String, String> makeApptMap = schApptPage.schAppointment(doctorName);
-		helperObject.navigateToAModule("HOME");
+		helperObject.navigateToModule("HOME");
 
 		// TC5 - Validate the Schedule Appointment details on the Homepage
 		boolean match = schApptPage.compareValuesOnHomePage(makeApptMap);
@@ -38,7 +40,7 @@ public class ScheduleAppointmentTests extends BaseClass {
 
 		// TC6 - Validate the Schedule Appointmeny details on the Schedule Appointment
 		// page
-		helperObject.navigateToAModule("Schedule Appointment");
+		helperObject.navigateToModule("Schedule Appointment");
 		match = schApptPage.compareValuesOnScheduleAppt(makeApptMap);
 		sa.assertTrue(match);
 
