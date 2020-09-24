@@ -21,7 +21,7 @@ public class AppLibrary {
 
 //e.g Enum can be defined here (for datePicker)
 //Here We are not using driver.FindElement so we can use it for all projects
-
+//
 //** All methods in AppLibrary you have to make it as static
 
 //** Anything here will be used in all projects

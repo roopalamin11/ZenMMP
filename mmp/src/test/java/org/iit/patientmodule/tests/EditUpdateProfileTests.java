@@ -13,7 +13,6 @@ public class EditUpdateProfileTests extends BaseClass {
 	public void validateEditUpdateProfile() {
 
 		SoftAssert sa = new SoftAssert();
-
 		// #TC1 - Open the Chrome Browser
 		HelperClass helperObject = new HelperClass(driver);
 

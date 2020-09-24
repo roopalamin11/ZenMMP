@@ -9,7 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 public class HelperClass {
 //** Methods specifically for this project
 //** e.g navigate to a module - can be used by anyone in the project
-	WebDriver driver;
+	private WebDriver driver;
 
 	public HelperClass(WebDriver driver) {
 		this.driver = driver;
